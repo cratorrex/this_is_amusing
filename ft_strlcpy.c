@@ -21,6 +21,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t	total;
 
 	total = 0;
+	if (size == 0)
+		return (1);
 	while (*src && (size - 1) > total)
 	{
 		*dst = *src;
@@ -29,5 +31,10 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		total++;
 	}
 	*dst = '\0';
+	while (*src)
+	{
+		total++;
+		src++;
+	}
 	return (total);
 }

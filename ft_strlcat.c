@@ -22,11 +22,15 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	total;
 
 	total = 0;
+	if (size == 0)
+		return (size);
 	while (*dst && (size - 1) > total)
 	{
 		dst++;
 		total++;
 	}
+	if (*dst != '\0')
+		return (size);
 	while (*src && (size - 1) > total)
 	{
 		*dst = *src;
