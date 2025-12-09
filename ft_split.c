@@ -25,6 +25,8 @@ static char	*alloc_small(char const *s, size_t size, size_t idx)
 	size_t	incr;
 
 	incr = 0;
+	if (size == 0)
+		return (NULL);
 	ret = malloc(sizeof(char) * (size + 1));
 	if (!ret)
 		return (NULL);
@@ -43,28 +45,22 @@ static char	**alloc_arr(char const *s, char c, char **array)
 	size_t	size;
 	size_t	prev;
 	size_t	word;
-	char	**start;
 
 	size = 0;
 	prev = 0;
 	word = 0;
-	start = array;
 	while (s[prev])
 	{
 		while (s[prev] == c)
 			prev++;
 		while (s[prev + size] != c && s[prev + size] != '\0')
 			size++;
-		//array[word] = alloc_small(s, size, prev);
-		if ((array[word] = alloc_small(s, size, prev)) == NULL)
-			return (NULL);
+		array[word] = alloc_small(s, size, prev);
 		word++;
 		prev = prev + size;
 		size = 0;
 	}
-	if ((array[word] = alloc_small(s, 0, 0)) == NULL)
-		return (NULL);
-	return (start);
+	return (array);
 }
 
 //return big array, ter '\0'
@@ -105,7 +101,8 @@ char	**ft_split(char const *s, char c)
 	array = alloc_big(s, c);
 	if (array)
 	{
-		if((array = alloc_arr(s, c, array)) == NULL)
+		array = alloc_arr(s, c, array);
+		if (array == NULL)
 			return (NULL);
 		return (array);
 	}
