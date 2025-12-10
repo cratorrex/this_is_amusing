@@ -21,15 +21,22 @@
 //
 
 #include "libft.h"
-#include <limits.h>
+#include <stdint.h>
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	char	*new;
 
-	if (nmemb == 0 || size == 0)
+	if (nmemb * size == 0)
+	{
+		new = malloc(0);
+		if (!new)
+			return (NULL);
+		return (new);
+	}
+	if ((ssize_t) nmemb < 0 || (ssize_t) size < 0)
 		return (NULL);
-	if (nmemb == INT_MAX / size)
+	if (nmemb == INT_MAX / size || nmemb == SIZE_MAX || size == SIZE_MAX)
 		return (NULL);
 	new = malloc(nmemb * size);
 	if (!new)
