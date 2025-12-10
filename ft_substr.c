@@ -27,9 +27,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*ret;
 
 	i = 0;
-	while (s[start + (int)i] && len > i)
+	while (s[start + (int)i] && len > i && ft_strlen(s) > start)
 		i++;
-	ret = malloc(i + 1);
+	ret = malloc(i + 1); // CHANGE THIS VALUE TO BE MORE PRECISE FOR EDGE CASES
 	if (!ret)
 		return (NULL);
 	n = 0;

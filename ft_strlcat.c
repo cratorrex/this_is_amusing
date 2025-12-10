@@ -20,22 +20,25 @@
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	total;
+	size_t	srclen;
 
 	total = 0;
-	if (size == 0)
-		return (size);
-	while (*dst && (size - 1) > total)
+	srclen = ft_strlen(src);
+	while (*dst && (size - 1) > total && size > 0)
 	{
 		dst++;
 		total++;
 	}
 	if (*dst != '\0')
-		return (size);
-	while (*src && (size - 1) > total)
+		return (size + srclen); // EARLY RETURN WHEN SIZE IS TOO SMALL FOR DEST- RETURN SIZE+SRCLEN
+	while (*src)
 	{
-		*dst = *src;
+		if ((size - 1) > total)
+		{
+			*dst = *src;
+			dst++;
+		}
 		src++;
-		dst++;
 		total++;
 	}
 	*dst = '\0';
