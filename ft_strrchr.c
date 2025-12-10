@@ -19,27 +19,24 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int				n;
 	int				len;
 	unsigned char	*ret;
 
-	n = 0;
 	len = 0;
 	ret = (unsigned char *)s;
 	while (*ret != '\0')
 	{
-		if (*ret == (unsigned char)c)
-			n = 0;
 		ret++;
-		n++;
 		len++;
 	}
-	while (n > 0 && n != len)
+	if (*ret == '\0' && c == '\0')
+		return ((char *)ret);
+	while (len >= 0)
 	{
+		len--;
+		if (*ret == (unsigned char)c)
+			return ((char *)ret);
 		ret--;
-		n--;
 	}
-	if (*ret == '\0' && c != '\0')
-		return (NULL);
-	return ((char *)ret);
+	return (NULL);
 }
