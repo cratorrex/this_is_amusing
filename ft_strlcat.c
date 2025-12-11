@@ -28,12 +28,12 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	{
 		dst++;
 		total++;
-	}printf("\n\n%zu\n", total);
+	}
 	if (*dst != '\0')
-		return (size + srclen); // EARLY RETURN WHEN SIZE IS TOO SMALL FOR DEST- RETURN SIZE+SRCLEN
+		return (size + srclen);
 	while (*src)
 	{
-		if ((size - 1) > total)
+		if (size > total + 1)
 		{
 			*dst = *src;
 			dst++;
@@ -41,6 +41,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		src++;
 		total++;
 	}
-	*dst = '\0';printf("'%i'|%zu|%i\n\n",*dst,total, (dst[-1]));
+	*dst = '\0';
 	return (total);
 }
