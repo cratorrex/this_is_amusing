@@ -27,13 +27,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*ret;
 
 	i = 0;
-	while (s[start + (int)i] && len > i && ft_strlen(s) > start)
+	while (ft_strlen(s) > start && len > i && s[start + (int)i])
 		i++;
 	ret = malloc(i + 1);
 	if (!ret)
 		return (NULL);
 	n = 0;
-	while (s[start + (int)n] && i > n)
+	while (i > n && s[start + (int)n])
 	{
 		ret[n] = s[start + (int)n];
 		n++;
