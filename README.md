@@ -20,7 +20,7 @@ This section covers 23 functions from the original `libc` library, as well as 11
 
 Any external functions that are allowed while coding that function will be denoted under the function's name.
 
-#### <hr>Single Character Checkers:
+#### <hr>Single Character Checkers
 
 <table><tr>
 <td colspan=4>The functions below take in a character <code>int c</code> and return an <code>int</code> value of either <code>0 (false)</code> or <code>1 (true)</code>.</td></tr><tr>
@@ -44,7 +44,7 @@ Any external functions that are allowed while coding that function will be denot
 </td></tr></table>
 
 
-#### <hr>Letter Adjusters:
+#### <hr>Letter Adjusters
 
 <table><tr>
 <td colspan=4>The functions below take in a character <code>int c</code> and return an adjusted character <code>int</code>.</td></tr><tr>
@@ -76,7 +76,7 @@ Returns the converted value on success, or a <code>0</code> on error.
 </tr></table>
 
 
-#### <hr>String Manipulation:
+#### <hr>String Manipulation
 
 <table><thead>
 <td>Function</td><td>Description</td><td>Parameters</td><td>Return Value</td>
