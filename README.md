@@ -131,31 +131,54 @@ Return <code>NULL</code> if the allocation fails.</td>
 <table><thead>
 <tr><td colspan=4><strong><code>ADV</code> The below table consists of some additional functions detailed in <code>PART2</code> of the subject.</strong></td></tr>
 <tr><td>Function</td><td>Description</td><td>Parameters</td><td>Return Value</td></tr></thead>
+<tr><td colspan=4><strong>Allowed Functions: <code>None</code><strong></td></tr>
 
-<tr><td>ft_substr<br/> <code>malloc</code></td>
+<tr><td>ft_striteri</td>
+<td>Applies the function <code>f</code> to each character in the given string <code>s</code>, passing the string <code>s</code> and index <code>unsigned int</code>.</td>
+<td><code>char *s</code><br/><br/> <code>void (*f)(unsigned int, char*)</code></td>
+<td>None</td></tr>
+
+<tr><td colspan=4><strong>Allowed Functions: <code>malloc</code></strong></td></tr>
+
+<tr><td>ft_strmapi</td>
+<td>Returns an allocated string from the given string <code>s</code>, after passing each character and its respective index <code>unsigned int</code> into the function <code>f</code>.<br/>
+Allocates memory for the substring to be returned.<br/>
+Returns <code>NULL</code> if the allocation fails.</td>
+<td><code>char const *s</code><br/><br/> <code>char (*f)(unsigned int, char)</code></td>
+<td><code>char *</code></td></tr>
+
+<tr><td>ft_substr</td>
 <td>Returns a substring from the given string <code>s</code> based on the starting index <code>start</code>, for up to <code>len</code> bytes.<br/>
 Allocates memory for the substring to be returned.<br/>
 Returns <code>NULL</code> if the allocation fails.</td>
 <td><code>char const *s</code><br/><br/> <code>unsigned int start</code><br/><br/> <code>size_t len</code></td>
 <td rowspan=3><code>char *</code></td></tr>
 
-<tr><td>ft_strjoin<br/> <code>malloc</code></td>
-<td>Returns a substring from the given string <code>s</code> based on the starting index <code>start</code>, for up to <code>len</code> bytes.<br/>
-Allocates memory for the substring to be returned.<br/>
+<tr><td>ft_strjoin</td>
+<td>Returns a string consisting the concatenation of both given strings <code>s1</code> and <code>s2</code>.<br/>
+Allocates memory for the resulting string to be returned.<br/>
 Returns <code>NULL</code> if the allocation fails.</td>
 <td><code>char const *s1</code><br/><br/> <code>char const *s2</code></td></tr>
 
-<tr><td>ft_strjoin<br/> <code>malloc</code></td>
-<td>Returns a substring from the given string <code>s</code> based on the starting index <code>start</code>, for up to <code>len</code> bytes.<br/>
-Allocates memory for the substring to be returned.<br/>
-Returns <code>NULL</code> if the allocation fails.</td>
-<td><code>char const *s1</code><br/><br/> <code>char const *s2</code></td></tr>
+<tr><td>ft_strtrim</td>
+<td>Returns a string after trimming characters appearing in <code>set</code> from the given string <code>s1</code>.
+Allocates memory for the trimmed string to be returned.<br/>
+Returns <code>NULL</code> if the allocation fails.<br/><br/>
+Example:<br/>
+Input: <code>s1 = "123test312case 3342231"</code> <code>set = "123"</code><br/>
+Expected Output: <code>test312case 334</code></td>
+<td><code>char const *s1</code><br/><br/> <code>char const *set</code></td></tr>
 
-<tr><td>ft_strjoin<br/> <code>malloc</code></td>
-<td>Returns a substring from the given string <code>s</code> based on the starting index <code>start</code>, for up to <code>len</code> bytes.<br/>
-Allocates memory for the substring to be returned.<br/>
-Returns <code>NULL</code> if the allocation fails.</td>
-<td><code>char const *s1</code><br/><br/> <code>char const *s2</code></td>
+<tr><td colspan=4><strong>Allowed Functions: <code>malloc</code>, <code>free</code></strong></td></tr>
+
+<tr><td>ft_split<br/> <code>free</code></td>
+<td>Returns an array of strings from the given string <code>s</code>, delimited by the character <code>c</code>.<br/>
+Allocates memory for the array to be returned.<br/>
+Returns <code>NULL</code> if the allocation fails.<br/><br/>
+Example:<br/>
+Input: <code>s = _Hello_World!_How___are__ ___you?_____</code> <code> c = '_'</code><br/>
+Expected Output: <code>Hello</code>, <code>World!</code>, <code>How</code>, <code>are</code>, <code> </code>, <code>you?</code>, <code>(NULL)</code></td>
+<td><code>char const *s</code><br/><br/> <code>char c</code></td>
 <td><code>char **</code></td>
 
 </tr></table>
@@ -168,7 +191,7 @@ Returns <code>NULL</code> if the allocation fails.</td>
 <td>ft_bzero</td>
 <td>Initializes the given memory area <code>s</code> of size <code>n</code> to a constant byte <code>0</code>.</td>
 <td><code>void *s</code><br/><br/> <code>size_t n</code></td>
-<td><code>void</code></td></tr><tr>
+<td>None</td></tr><tr>
 
 <td>ft_calloc<br/><code>malloc</code></td>
 <td>Returns a pointer to an allocated array, of <code>nmemb * size</code> bytes, initialized to <code>0</code>.<br/>
@@ -215,7 +238,7 @@ Returns an <code>int (as unsigned char)</code> of the resulting arithmetic compa
 <tr><td>ft_putchar_fd</td>
 <td>Writes the given character <code>c</code> into the given File Descriptor <code>fd</code>.</td>
 <td><code>char c</code></td>
-<td rowspan=4><code>void</code></td></tr>
+<td rowspan=4>None</td></tr>
 
 <tr><td>ft_putstr_fd</td>
 <td>Writes the given string <code>s</code> into the given File Descriptor <code>fd</code>.</td>
@@ -231,6 +254,50 @@ Returns an <code>int (as unsigned char)</code> of the resulting arithmetic compa
 </tr></table>
 
 
-####
+### Part 3 - Linked List
+This part consists of 9 functions, introducing the concept of Singly Linked Lists and it's applications.
 
-####
+<table><thead><td>Function</td><td>Description</td><td>Parameters</td><td>Return Value</td>
+</thead>
+<tr><td>ft_lstnew<br/> <code>malloc</code></td>
+<td>Allocates a new node with the given <code>content</code> variable, and initializing the <code>next</code> variable to <code>NULL</code>.</td>
+<td><code>void *content</code></td>
+<td><code>t_list *</code></td></tr>
+
+<tr><td>ft_lstadd_front</td>
+<td rowspan=2>Adds a <code>new</code> node to the <code>front</code> or <code>back</code> of the linked list <code>lst</code>, respectively.</td>
+<td rowspan=2><code>t_list **lst</code><br/><br/> <code>t_list *new</code></td>
+<td rowspan=2>None</td></tr>
+
+<tr><td>ft_lstadd_back</td></tr>
+
+<tr><td>ft_lstlast</td>
+<td>Returns the last node of the list <code>lst</code>.</td>
+<td rowspan=2><code>t_list *lst</code></td>
+<td><code>t_list *</code></td></tr>
+
+<tr><td>ft_lstsize</td>
+<td>Returns the size of the list, given the beginning of the list at <code>lst</code>.</td>
+<td><code>int</code></td></tr>
+
+<tr><td>ft_lstdelone<br/> <code>free</code></td>
+<td>Deletes a single node <code>lst</code> using the function <code>del</code> to delete its contents, freeing the node after.</td>
+<td><code>t_list *lst</code><br/><br/> <code>void (*del)(void *)</code></td>
+<td rowspan=2>None</td></tr>
+
+<tr><td>ft_lstclear<br/> <code>free</code></td>
+<td>Deletes the list starting from <code>lst</code> using the function <code>del</code> to delete each node's contents, freeing each node after.<br/>
+Finally, set the pointer to the list <code>lst</code> to <code>NULL</code>.</td>
+<td><code>t_list **lst</code><br/><br/> <code>void (*del)(void *)</code></td></tr>
+
+<tr><td>ft_lstiter</td>
+<td>Iterates through each list node in <code>lst</code> and applies the function <code>f</code> to each node's contents.</td>
+<td><code>t_list *lst</code><br/><br/> <code>void *(*f)(void *)</code></td>
+<td>None</td></tr>
+
+<tr><td>ft_lstmap<br/> <code>malloc</code><br/> <code>free</code></td>
+<td>Iterates through each list node in <code>lst</code> and applies the function <code>f</code> to each node's contents, allocating the results of the successive applications of <code>f</code> to a new list in memory, and using the <code>del</code> function to delete a node's contents where necessary.<br/>
+Returns <code>NULL</code> is the allocation fails.</td>
+<td><code>t_list *lst</code><br/><br/> <code>void *(*f)(void *)</code><br/><br/> <code>void (*del)(void *)</code></td>
+<td><code>t_list *</code></td></tr>
+</table>
