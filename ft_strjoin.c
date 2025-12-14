@@ -18,7 +18,7 @@
 
 #include "libft.h"
 
-size_t	len(char const *s)
+static size_t	len(char const *s)
 {
 	size_t	i;
 
