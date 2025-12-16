@@ -52,12 +52,10 @@ static size_t	m_end(const char *big, const char *lil)
 {
 	size_t	i;
 	size_t	n;
-	size_t	ter;
 
 	i = 0;
 	while (big[i])
 		i++;
-	ter = i;
 	while (i > 0)
 	{
 		i--;
