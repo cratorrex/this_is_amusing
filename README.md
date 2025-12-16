@@ -13,6 +13,7 @@ Compile this library into an archive `.a` file using the `make` command. <br/>
 ## Resources
 The `manual`
 
+Minimal AI usage that helps to figure out what snippets of my code was giving errors.
 
 ## Overview of Deliverables
 ### Part 1 and 2 - Functions from `libc` and Additional Functions
