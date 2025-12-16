@@ -26,7 +26,7 @@ char	*ft_strchr(const char *s, int c)
 	{
 		ret++;
 	}
-	if (*ret == '\0' && c != '\0')
+	if (*ret == '\0' && (unsigned char) c != '\0')
 		return (NULL);
 	else
 		return ((char *)ret);
