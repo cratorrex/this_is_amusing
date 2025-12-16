@@ -41,11 +41,13 @@ static char	*alloc_small(char const *s, size_t size, size_t idx)
 
 static void	de_alloc(char **array, size_t word)
 {
-	while (word >= 0)
+	while (word > 0)
 	{
 		free (array[word]);
 		word--;
 	}
+	if (word == 0)
+		free (array[word]);
 	free (array);
 	return (NULL);
 }
