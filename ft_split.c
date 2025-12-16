@@ -39,6 +39,17 @@ static char	*alloc_small(char const *s, size_t size, size_t idx)
 	return (ret);
 }
 
+static void	de_alloc(char **array, size_t word)
+{
+	while (word >= 0)
+	{
+		free (array[word]);
+		word--;
+	}
+	free (array);
+	return (NULL);
+}
+
 //population increase
 static char	**alloc_arr(char const *s, char c, char **array)
 {
@@ -57,7 +68,10 @@ static char	**alloc_arr(char const *s, char c, char **array)
 			size++;
 		array[word] = alloc_small(s, size, prev);
 		if (array[word] == NULL)
+		{
+			de_alloc(array, word);
 			return (NULL);
+		}
 		word++;
 		prev = prev + size;
 		size = 0;
