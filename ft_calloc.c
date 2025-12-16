@@ -27,16 +27,16 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	char	*new;
 
-	if (nmemb * size == 0)
+	if (nmemb == 0 || size == 0)
 	{
-		new = malloc(0);
+		new = malloc(1);
 		if (!new)
 			return (NULL);
 		return (new);
 	}
 	if ((ssize_t) nmemb < 0 || (ssize_t) size < 0)
 		return (NULL);
-	if (nmemb == INT_MAX / size || nmemb == SIZE_MAX || size == SIZE_MAX)
+	if (nmemb > INT_MAX / size)
 		return (NULL);
 	new = malloc(nmemb * size);
 	if (!new)
