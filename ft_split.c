@@ -49,7 +49,6 @@ static void	de_alloc(char **array, size_t word)
 	if (word == 0)
 		free (array[word]);
 	free (array);
-	return (NULL);
 }
 
 //population increase
