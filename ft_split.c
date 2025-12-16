@@ -68,7 +68,7 @@ static char	**alloc_arr(char const *s, char c, char **array)
 		while (s[prev + size] != c && s[prev + size] != '\0')
 			size++;
 		array[word] = alloc_small(s, size, prev);
-		if (array[word] == NULL)
+		if (array[word] == NULL && s[prev] != '\0')
 		{
 			de_alloc(array, word);
 			return (NULL);
