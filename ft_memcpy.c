@@ -23,6 +23,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	unsigned char	*cast;
 
 	i = 0;
+	if (!dest && !src)
+		return (NULL);
 	ret = (unsigned char *)dest;
 	cast = (unsigned char *)src;
 	while (n > i)

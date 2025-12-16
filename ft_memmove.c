@@ -43,6 +43,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	unsigned char	*cast;
 
 	i = 0;
+	if (!dest && !src)
+		return (NULL);
 	if (dest > src)
 	{
 		return (ft_memmove_decr(dest, src, n));

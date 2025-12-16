@@ -29,9 +29,11 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	while (big[i] && len > i)
 	{
 		while (big[i + n] == little[n] && len > (i + n))
+		{
 			n++;
-		if (little[n] == '\0')
-			return ((char *)&big[i]);
+			if (little[n] == '\0')
+				return ((char *)&big[i]);
+		}
 		n = 0;
 		i++;
 	}

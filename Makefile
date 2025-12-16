@@ -53,4 +53,5 @@ re: fclean all
 # > make fclean 
 # |> internally calls the commands in order 'clean >> fclean'
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
+# bonus
